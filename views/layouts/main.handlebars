@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Check your summoner id</title>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+</head>
+<div>
+<ul>
+  <li><a href="contact">Contact</a></li>
+  <li><a href="about">About</a></li>
+</ul>
+<body background="https://images5.alphacoders.com/469/469133.jpg">
+
+  <div id ="search_bar">
+  <form action="/search" method ="get">
+    <input type ="text" id = "summoner" name = "summoner" placeholder = "summoner name">
+    </form>
+
+    </div>
+        <div>
+    <button type="button">NE</button>
+
+<button type="button">EUW</button>
+
+<button type="button">NA</button>
+    <h3>{{info.id}}</h3>
+
+
+    </div>
+</div>
+
+</body>
+<style>
+body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+
+            }
+            button{
+              width: 40px;
+              height:30px;
+            }
+#search_bar{
+   border-radius: 25px;
+position: absolute;
+background-color: blue;
+opacity: 0.7;
+width: 30%;
+  top:55%;
+  left: 35%;
+}
+h3{
+  color:white;
+}
+            #summoner {
+margin:30px 0px;
+              width:100%;
+              top: 10px;
+              font-family: sans-serif;
+              font-size: 18px;
+              color: white;
+              background: black;
+                opacity: 1;
+                background-color:#001f3f;
+              appearance: none;
+              box-shadow: none;
+              border-radius: 10px;
+            }
+            button{
+              position: center;
+            }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  opacity: 0.7;
+    background-color:#001f3f;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: #39CCCC;
+    text-align: right;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+
+    background-color : transparent;
+    background-color: #111;
+}
+</style>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+</html>
