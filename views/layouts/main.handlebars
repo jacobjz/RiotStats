@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Check your summoner id</title>
+  <title>Check Summonr Statistics</title>
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -18,21 +18,23 @@
 <body background="https://images5.alphacoders.com/469/469133.jpg">
 
   <div id ="search_bar">
-  <form action="/search" method ="get">
-    <input type ="text" id = "summoner" name = "summoner" placeholder = "summoner name">
+  <form action="/search" id="search_form" method ="get"class="form-wrapper cf">
+    <input type="text"  id = "summoner" name = "summoner" placeholder = "summoner name" required>
+    <button type="submit" >Search</button>
+
+</form>
     </form>
 
     </div>
-        <div>
-    <button type="button">NE</button>
+        <div id="region_btns" style="text-align: center;">
+    <button type="button" id="ne_button" onclick="myFunctionNe()">EUNE</button>
 
-<button type="button">EUW</button>
+<button type="button" id="uw_button" onclick="myFunctionUe()">EUW</button>
 
-<button type="button">NA</button>
-    <h3>{{info.id}}</h3>
-
+<button type="button" id="na_button" onclick="myFunctionNa()">NA</button>
 
     </div>
+      <h3>{{info.id}}</h3>
 </div>
 
 </body>
@@ -42,39 +44,134 @@ body {
                 margin: 0;
                 padding: 0;
 
+
             }
-            button{
-              width: 40px;
-              height:30px;
+
+            #region_btns{
+              margin: 0 auto;
             }
-#search_bar{
-   border-radius: 25px;
-position: absolute;
-background-color: blue;
-opacity: 0.7;
-width: 30%;
-  top:55%;
-  left: 35%;
-}
+
 h3{
-  color:white;
+  color:black;
+  margin: 0 auto;
+  text-align: center;
 }
-            #summoner {
-margin:30px 0px;
-              width:100%;
-              top: 10px;
-              font-family: sans-serif;
-              font-size: 18px;
-              color: white;
-              background: black;
-                opacity: 1;
-                background-color:#001f3f;
-              appearance: none;
-              box-shadow: none;
-              border-radius: 10px;
+
+            /*Clearing Floats*/
+            .cf:before, .cf:after {
+                content:"";
+                display:table;
             }
-            button{
-              position: center;
+
+            .cf:after {
+                clear:both;
+            }
+
+            .cf {
+                zoom:1;
+            }
+            /* Form wrapper styling */
+            .form-wrapper {
+                width: 450px;
+                padding: 15px;
+                margin: 500px auto 0px auto;
+                background: #444;
+                background: rgba(0,0,0,.2);
+                border-radius: 10px;
+                box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+            }
+
+            /* Form text input */
+
+            .form-wrapper input {
+                width: 310px;
+                height: 40px;
+                padding: 10px 5px;
+                float: left;
+                font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+                border: 0;
+                background: #eee;
+                border-radius: 3px 0 0 3px;
+            }
+
+            .form-wrapper input:focus {
+                outline: 0;
+                background: #fff;
+                box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+            }
+
+            .form-wrapper input::-webkit-input-placeholder {
+               color: #999;
+               font-weight: normal;
+               font-style: italic;
+            }
+
+            .form-wrapper input:-moz-placeholder {
+                color: #999;
+                font-weight: normal;
+                font-style: italic;
+            }
+
+            .form-wrapper input:-ms-input-placeholder {
+                color: #999;
+                font-weight: normal;
+                font-style: italic;
+            }
+
+            /* Form submit button */
+            .form-wrapper button {
+                overflow: visible;
+                float: right;
+                border: 0;
+                padding: 0;
+                height: 40px;
+                width: 110px;
+                font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+                color: #001f3f;
+                text-transform: uppercase;
+                background: #7FDBFF;
+                border-radius: 0 3px 3px 0;
+                text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+            }
+            #region_btns button {
+                width: 50px;
+                height:40px;
+                text-align: center;
+                border-radius: 10px;
+                overflow: visible;
+                border: 0;
+                padding: 0;
+                font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+                color: #001f3f;
+                text-transform: uppercase;
+                background: #7FDBFF;
+                border-radius: 5px;
+                text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+            }
+            .form-wrapper button:hover {
+                background: #39CCCC;
+            }
+
+            .form-wrapper button:active,
+            .form-wrapper button:focus {
+                background: #0074D9;
+                outline: 0;
+            }
+              #region_btns button:hover {
+                background: #39CCCC;
+            }
+
+              #region_btns button:active,
+              #region_btns button:focus
+             {
+                background: #0074D9;
+                outline: 0;
+            }
+
+
+            .form-wrapper button:focus:before,
+            .form-wrapper button:active:before {
+                    border-right-color: #c42f2f;
             }
 
 ul {
@@ -107,4 +204,15 @@ li a:hover {
 </style>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+function myFunctionNe() {
+document.getElementById('search_form').action = "/search/ne"
+}
+function myFunctionNa() {
+document.getElementById('search_form').action = "/search/na"
+}
+function myFunctionUe() {
+document.getElementById('search_form').action = "/search/euw"
+}
+</script>
 </html>
