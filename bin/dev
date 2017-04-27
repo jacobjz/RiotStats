@@ -1,0 +1,2 @@
+require('dotenv/config')
+require('C:/Users/Hawk/Desktop/lol/server')
