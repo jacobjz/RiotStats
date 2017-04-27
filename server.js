@@ -60,9 +60,9 @@ app.get('/search/euw', function(req,res){
   });
 });
 app.get('/search/na', function(req,res){
-  console.log("/search/ew");
+  console.log("/search/na");
   var data = {};
-  var api_key ='RGAPI-51e390ef-d1bd-4739-9d2e-fa925b7a33d9';
+  var api_key = process.env.API_KEY;
   var s_toSearch = req.query.summoner.toLowerCase();
   var URL = 'https://na.api.riotgames.com/api/lol/na/v1.4/summoner/by-name/' + s_toSearch + '?api_key=' + api_key;
 
@@ -102,7 +102,7 @@ app.get('/search/na', function(req,res){
 app.get('/search/ne', function(req,res){
   console.log("/search");
   var data = {};
-  var api_key ='RGAPI-51e390ef-d1bd-4739-9d2e-fa925b7a33d9';
+  var api_key =process.env.API_KEY;
   var s_toSearch = req.query.summoner.toLowerCase();
   var URL = 'https://eune.api.riotgames.com/api/lol/eune/v1.4/summoner/by-name/' + s_toSearch + '?api_key=' + api_key;
 
@@ -136,7 +136,7 @@ app.get('/search/ne', function(req,res){
       console.log(err);
       return;
     }
-    res.render('main', {info: data});
+    res.render('summary', {info: data});
   });
 });
 var port = Number(process.env.API_PORT);
